@@ -1,0 +1,228 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<title>SimpleShow Test</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="UTF-8">
+	
+	
+	<!-- Font -->
+
+	
+	<!-- Stylesheets -->
+	
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+	<link rel="stylesheet" href="assets/css/styles.css" >
+	
+</head>
+<body>
+	
+	<div class="main-area h-100" id="app">
+		<div class="container-fluid h-100">
+            <div class="row h-100">
+                <div class="col col-12 col-xl-10 mx-auto px-0 hanger_bg">
+                    <h1 class="position-absolute">{{okParts}}</h1>
+                    <div class="row h-100">
+                        <div class="col col-4 ml-auto">
+                            <div class="simplemech-built ">
+                                <div class="drop-head position-relative"v-on:drop="drop"
+                                v-on:dragover="allowDrop" data-id-part="dragHead"></div>
+                                <div class="drop-chest-arms d-flex position-relative">
+                                    <div class="drop-arm1 h-100 w-25"v-on:drop="drop"
+                                    v-on:dragover="allowDrop" data-id-part="dragArm1">
+
+                                    </div>
+                                    <div class="drop-chest h-100 w-50"v-on:drop="drop"
+                                    v-on:dragover="allowDrop" data-id-part="dragChest">
+
+                                    </div>
+                                    <div class="drop-arm2 h-100 w-25"v-on:drop="drop"
+                                    v-on:dragover="allowDrop" data-id-part="dragArm2">
+                                        
+                                    </div>
+                                </div>
+                                <div class="drop-legs d-flex position-relative">
+                                    <div class="drop-leg1 h-100 w-50 position-relative" v-on:drop="drop"
+                                    v-on:dragover="allowDrop" @dragenter="dropAvailable"  data-id-part="dragLeg1" >
+
+                                    </div>
+                                    <div class="drop-leg2 h-100 w-50 position-relative" v-on:drop="drop"
+                                    v-on:dragover="allowDrop" data-id-part="dragLeg2">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col col-6">
+                            <div class="simplemech-parts row ">
+                                <div class="col col-4 legs px-0" v-on:drop="drop"
+                                v-on:dragover="allowDrop">
+
+                                    <img :src="leg1"
+                                    id="dragLeg1"
+                                    draggable="true"
+                                    
+                                    v-on:dragstart="drag"
+                                    class="position-absolute leg1 img-fluid" alt="">
+
+                                    <img :src="leg2"
+                                    id="dragLeg2"
+                                    draggable="true"
+                                    v-on:dragstart="drag"
+                                    class="position-absolute leg2 img-fluid" alt="">
+                                </div>
+                                <div class="col col-4 chest-head px-0" v-on:drop="drop"
+                                v-on:dragover="allowDrop">
+                                    <img :src="chest"
+                                    id="dragChest"
+                                    draggable="true"
+                                    v-on:dragstart="drag"
+                                    class="position-absolute chest img-fluid" alt="">
+                                    <img :src="head"
+                                    id="dragHead"
+                                    draggable="true"
+                                    v-on:dragstart="drag"
+                                    class="position-absolute head img-fluid" alt="">
+                                </div>
+                                <div class="col col-4 arms px-0" v-on:drop="drop"
+                                v-on:dragover="allowDrop">
+                                    <img :src="arm1"
+                                    id="dragArm1"
+                                    draggable="true"
+                                    v-on:dragstart="drag"
+
+                                    class="position-absolute arm1 img-fluid" alt="">  
+                                    <img :src="arm2"
+                                    id="dragArm2"
+                                    draggable="true"
+                                    v-on:dragstart="drag"
+                                    class="position-absolute arm2 img-fluid" alt="">  
+                                </div>
+
+                            </div>
+
+                            <img :src="instructionBox" class="position-absolute instruction_box img-fluid" alt="">
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+                
+
+
+            <div class="overlay" v-if="!start || built"></div>
+            <transition name="maximize">
+                <div class="start" v-if="!start">
+                    <img :src="startDialog" alt="">
+                    <img :src="startButton" class="start_button" alt="" @click.stop.prevent="start = true">
+                    <img :src="startBoxMedium" class="start_overlay_box_medium opacity" alt="">
+                    <img :src="startBoxSmall" class="start_overlay_box_small opacity" alt="">
+                </div>
+            </transition>
+            <transition name="maximize">
+                <div class="built" v-if="built" @click="built = false">
+                    <img :src="successDialog" alt="" class="img-fluid success_dialog">
+                    <img :src="successDialogMedium" class="img-fluid success_dialog_medium opacity zoom" alt="">
+                    <img :src="successDialogSmall" class="img-fluid success_dialog_small opacity zoom" alt="">
+
+                </div>
+            </transition>
+			
+
+		
+		</div>
+	</div><!-- main-area -->
+	
+	<!-- SCIPTS -->
+	
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="assets/js/DragDropTouch.js"></script>
+    
+
+    
+    <script>
+        
+        var app = new Vue({
+            
+        el: '#app',
+        data: {
+            start: false,
+            hanger: 'assets/images/svg/hanger_background.png',
+            startDialog: 'assets/images/svg/start_overlay-box-large.svg',
+            startButton: 'assets/images/svg/start_button.svg',
+            startBoxMedium: 'assets/images/svg/start_overlay-box-medium.svg',
+            startBoxSmall: 'assets/images/svg/start_overlay-box-small.svg',
+            instructionBox: 'assets/images/svg/instruction_box.png',
+            successDialog: 'assets/images/svg/feedback_overlay-box-large.svg',
+            successDialogMedium: 'assets/images/svg/feedback_overlay-box-medium.svg',
+            successDialogSmall: 'assets/images/svg/feedback_overlay-box-small.svg',
+            chest: 'assets/images/svg/simplemech-chest.png',
+            head:'assets/images/svg/simplemech-head.png',
+            leg1: 'assets/images/svg/simplemech-leg1.png',
+            leg2: 'assets/images/svg/simplemech-leg2.png',
+            arm1: 'assets/images/svg/simplemechs_arm1.svg',
+            arm2: 'assets/images/svg/simplemechs_arm2.svg',
+            okParts: 0,
+            totalParts: 6,
+            built: false,
+            
+            
+
+            
+        },
+        watch: {
+            
+            okParts: function () {
+                this.okParts === this.totalParts ? this.built = true : false;
+            }
+        },
+        created: function () {
+         
+
+            
+        },
+        methods: {
+             drag: function(ev) {
+                ev.dataTransfer.setData("text", ev.target.id);
+               
+            },
+            dropAvailable: function(ev) {
+                
+               
+            },
+            dragLeave: function(ev) {
+                var data = ev.dataTransfer.getData("text");
+
+            },
+            allowDrop:function(ev) {
+                ev.preventDefault();
+            },
+            drop:function(ev) {
+                
+                if( ev.target.tagName != 'IMG' && ev.target.children.length === 0 ) {
+                    ev.preventDefault();
+               
+               var data = ev.dataTransfer.getData("text");
+               ev.target.appendChild(document.getElementById(data));
+               if(ev.target.dataset.idPart === data) {
+                   this.okParts += 1;
+                   
+                   ev.target.style= '-webkit-user-select: none;-webkit-user-drag: none;-webkit-app-region: no-drag;cursor: default;'
+               }
+                }
+
+       
+            },
+
+        }
+        });
+
+    </script>
+</body>
+</html>

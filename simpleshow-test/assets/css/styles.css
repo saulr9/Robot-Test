@@ -1,0 +1,647 @@
+html, body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+.hanger_bg {
+    background-image: url('../images/svg/hanger_background.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain;
+    max-width: 1280px;
+    max-height: 722px;
+}
+
+
+.hanger {
+
+    height: 700px;
+}
+ .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,.6);
+}
+.start {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    right: 0;
+    text-align: center;
+}
+.start img {
+    max-width: 80%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    
+    text-align: center;
+    margin: 0 auto;
+}
+.start .start_button {
+    z-index: 3;
+    right: 0;
+    top: 0;
+    cursor: pointer;
+    transform: scale(1.1);
+}
+.start .start_overlay_box_medium {
+    
+    right: -20px;
+    transform: scale(1.1);
+}
+.start .start_overlay_box_small {
+    transform: scale(1.1);
+    right: -10px;
+}
+
+.instruction_box {
+
+    right: 30px;
+}
+#drophead img{
+    bottom: -40px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+}
+#dropleg2 img {
+    max-width: 100px;
+    right: inherit;
+    bottom: 35px;
+    left: 15px;
+}
+#dropleg1 img{
+    bottom: 35px;
+    right: 15px;
+    left: initial;
+}
+.simplemech-parts {
+    top: 50%;
+    position: relative;
+    height:100%;
+    max-height: 310px;
+    width: 100%;
+    max-width: 580px;
+    left: 0;
+    right: 0;
+
+    /*background: rgba(0,0,0,.5);*/
+    transform: translateY(-50%);
+}
+.simplemech-parts img{
+    cursor: move;
+}
+.simplemech-built {
+    position: relative;
+    top: 0;
+    height: 100%;
+    /*background: #ff0000bd;*/
+
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+
+}
+.simplemech-built .drop-head {
+    height: 20%;
+}
+.simplemech-built .drop-chest-arms {
+    height: 20%;
+}
+.simplemech-built .drop-legs {
+    height: 60%;
+}
+.simplemech-built img,
+.simplemech-built svg {
+    top: initial;
+    left: initial;
+    right: initial;
+    bottom: initial;
+}
+.simplemech-built .drop-leg1,
+.simplemech-built .drop-leg2 {
+    z-index: 3;
+}
+
+.simplemech-built .drop-head {
+    z-index: 3;
+}
+
+.built {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    text-align: center;
+    z-index: 20;
+
+}
+.built img {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    text-align: center;
+    cursor: pointer;
+    z-index: 20;
+}
+.built .success_dialog_medium  {
+ 
+    left: -10%;
+}
+.built .success_dialog_small{
+    right: -15%;
+   
+}
+.opacity {
+    opacity: .9;
+}
+.zoom {
+    transform: scale(1.2);
+}
+
+
+
+
+@media(max-width: 599px) {
+
+    .hanger_bg {
+        max-height: 220px !important;
+        max-width: 325px !important;
+    }
+    .start,
+    .built {
+        max-height: 220px;
+    }
+    .start .start_overlay_box_medium {
+        
+        top:15px;
+    }
+    .built .success_dialog_medium  {
+        top: 20px;
+        
+    }
+    .built .success_dialog_small {
+        right: -20%;
+        top: 20px;
+    }
+    .instruction_box {
+        top: 0 ;
+    }
+    .simplemech-built {
+        max-width: 110px !important;
+    }
+    .simplemech-parts {
+        max-height:100px;
+    }
+    .simplemech-parts img {
+        max-width: 30px;
+    }
+    .simplemech-parts .leg1,
+    .simplemech-parts .leg2 {
+        max-width: 25px;
+    }
+    .arm1 {
+        top:-0.5em;
+        left:0;
+
+    
+    }
+    .arm2 {
+        top:-0.5em;
+        right: 0;
+    }
+    .leg1 {
+        max-width: 95px;
+        left: .5em;
+        bottom: .5em;
+    
+    }
+    .leg2 {
+        max-width: 95px;
+        right: -0.5em;
+        bottom: .5em;
+    
+    }
+    .simplemech-parts .chest {
+        max-width: 50px !important;
+        right: 0;
+        left: 0;
+        margin: 0 auto;
+    }
+    .head {
+        bottom: .5em;
+        right:0;
+        left:0;
+        margin: 0 auto;
+    }
+    .simplemech-built .leg1,
+    .simplemech-built .leg2 {
+        max-width: 22px;
+    }
+    .simplemech-built .drop-leg1 img{
+ 
+        top: 0.5em;
+        right: -0.1em;
+    }
+    .simplemech-built .drop-leg2 img{
+        
+        top: 0.5em;
+        right: 0.75em;
+    }
+ 
+    .simplemech-built .drop-arm1 img{
+        left: 0.2em;
+        max-width: 30px;
+        top: .15em;
+    }
+    .simplemech-built .drop-arm2 img{
+        right: -0.45em;
+        max-width: 30px;
+        top: .15em;
+    }
+    .simplemech-built .drop-head img{
+        left: 0em;
+        right: -1em;
+        margin: 0 auto;
+        max-width: 20px;
+        bottom: -1em;
+    }
+    .simplemech-built .drop-chest img{
+        left: 0em;
+        top: 0.5em;
+        max-width: 50px;
+        right: -1em;
+        margin: 0 auto;
+        z-index: 1;
+    }
+    
+}
+@media(min-width: 600px) and (max-width: 1023px) {
+    .simplemech-built {
+        max-width: 130px;
+    }
+    .hanger_bg {
+        max-width: 600px !important;
+        max-height: 350px;
+    }
+    .instruction_box {
+        top: 20px;
+
+    }
+    .start {
+        max-height:350px;
+    }
+    .start .start_overlay_box_medium {
+
+        top: 12%;
+    }
+    .built .success_dialog_medium  {
+        top: 48px;
+        
+        
+    }
+    .built .success_dialog_small {
+      
+        top: 40px;
+        right: -20% !important;
+    }
+    .simplemech-parts {
+        max-height:150px;
+        max-width: 270px;
+    }
+    .simplemech-parts img {
+        max-width: 50px;
+    }
+    .simplemech-parts .leg1,
+    .simplemech-parts .leg2 {
+        max-width: 40px;
+    }
+    .arm1 {
+        left:0;
+        top: -2em;
+    
+    }
+    .arm2 {
+        top: -2em;
+        right: -0.5em;
+    }
+    .leg1 {
+       
+        left: 0.5em;
+        bottom: 0;
+    
+    }
+    .leg2 {
+   
+        right: -0.5em;
+        bottom: 0;
+    
+    }
+    .simplemech-parts .chest {
+    
+       max-width: 100% !important;
+       top: -0.5em;
+    
+    }
+    .head {
+    
+        bottom: 0;
+        right: .5em;
+        left: .5em;
+        margin: 0 auto;
+    }
+    .simplemech-built .leg1,
+    .simplemech-built .leg2 {
+        max-width: 42px;
+    }
+    .simplemech-built .drop-leg1 img{
+ 
+        top: 0.5em;
+        right: 0em;
+    }
+    .simplemech-built .drop-leg2 img{
+        
+        top: 0.5em;
+        right: 0.5em;
+    }
+    .simplemech-built .drop-arm1,
+    .simplemech-built .drop-arm2 {
+        z-index: 2;
+    }
+    .simplemech-built .drop-arm1 img{
+        left: -0.75em;
+        max-width: 50px;
+        top: -0.75em;
+    }
+    .simplemech-built .drop-arm2 img{
+        right: -1.25em;
+        max-width: 50px;
+        top: -0.75em;
+    }
+    .simplemech-built .drop-head img{
+        left: 0em;
+        right: -1em;
+        margin: 0 auto;
+        max-width: 40px;
+        bottom: -0.75em;
+    }
+    .simplemech-built .drop-chest img{
+        left: 2em;
+        top: 0;
+        max-width: 80px;
+        right: 2em;
+        margin: 0 auto;
+    }
+}
+    
+
+@media(min-width: 1024px) and (max-width: 1535px) {
+    .simplemech-built {
+        max-width: 200px;
+    }
+    .hanger_bg {
+        max-width: 1024px !important;
+        max-height: 600px;
+    }
+    .start {
+        max-height: 600px;
+    }
+    .start .start_overlay_box_medium {
+
+        top: 10%;
+    }
+    .built .success_dialog_medium  {
+        top: 60px;
+        left:-8% !important;
+        
+    }
+    .built .success_dialog_small {
+      
+        top: 55px;
+    }
+    .instruction_box {
+        top: 20px;
+
+    }
+    .simplemech-parts {
+        max-height:250px;
+        max-width: 470px;
+    }
+    .simplemech-parts img {
+        max-width: 90px;
+    }
+    .simplemech-parts .leg1,
+    .simplemech-parts .leg2 {
+        max-width: 70px;
+    }
+    .arm1 {
+        left:0;
+        top: -4em;
+    
+    }
+    .arm2 {
+        top: -4em;
+        right: -2em;
+    }
+    .leg1 {
+       
+        left: 0.5em;
+        bottom: 0;
+    
+    }
+    .leg2 {
+   
+        right: -0.5em;
+        bottom: 0;
+    
+    }
+    .simplemech-parts .chest {
+    
+       max-width: 100% !important;
+       top: -1em;
+    
+    }
+    .head {
+    
+        bottom: 0;
+        right: .5em;
+        left: .5em;
+        margin: 0 auto;
+    }
+    .simplemech-built .leg1,
+    .simplemech-built .leg2 {
+        max-width: 70px;
+    }
+    .simplemech-built .drop-leg1 img{
+ 
+        top: 1em;
+        right: .5em;
+    }
+    .simplemech-built .drop-leg2 img{
+        
+        top: 1em;
+        right: 0;
+    }
+    .simplemech-built .drop-arm1,
+    .simplemech-built .drop-arm2 {
+        z-index: 2;
+    }
+    .simplemech-built .drop-arm1 img{
+        left: -2em;
+        max-width: 80px;
+        top: -1.25em;
+    }
+    .simplemech-built .drop-arm2 img{
+        right: -2.5em;
+        max-width: 80px;
+        top: -1.25em;
+    }
+    .simplemech-built .drop-head img{
+        left: 0em;
+        right: -1em;
+        margin: 0 auto;
+        max-width: 70px;
+        bottom: -1em;
+    }
+    .simplemech-built .drop-chest img{
+        left: 2em;
+        top: 0;
+        max-width: 150px;
+        right: 2em;
+        margin: 0 auto;
+    }
+}
+
+@media(min-width: 1536px) {
+    .simplemech-built {
+        max-width: 240px;
+    }
+    .instruction_box {
+        top: 20px;
+
+    }
+    .start .start_overlay_box_medium {
+
+        top: 10%;
+    }
+    .built {
+        max-height: 722px;
+    }
+    .built .success_dialog_medium  {
+        top: 60px;
+        left:-8% !important;
+        
+    }
+    .built .success_dialog_small {
+      
+        top: 55px;
+    }
+    .arm1 {
+        left:0;
+        top: -4em;
+    
+    }
+    .arm2 {
+        top: -4em;
+        right: -2em;
+    }
+    .leg1 {
+        max-width: 95px;
+        left: 1em;
+    
+    }
+    .leg2 {
+        max-width: 95px;
+        right: -1em;
+    
+    }
+    .chest {
+    
+       right: -1em;
+    
+    }
+    .head {
+    
+        bottom: 0;
+        right: 1em;
+    }
+    .simplemech-built .leg1,
+    .simplemech-built .leg2 {
+        max-width: 90px;
+    }
+    .simplemech-built .drop-leg1 img{
+ 
+        top: 1em;
+        right: .5em;
+    }
+    .simplemech-built .drop-leg2 img{
+        
+        top: 1em;
+        right: 0;
+    }
+    .simplemech-built .drop-arm1,
+    .simplemech-built .drop-arm2 {
+        z-index: 2;
+    }
+    .simplemech-built .drop-arm1 img{
+        left: -2.5em;
+        max-width: 100px;
+        top: -2em;
+    }
+    .simplemech-built .drop-arm2 img{
+        right: -3.5em;
+        max-width: 100px;
+        top: -2em;
+    }
+    .simplemech-built .drop-head img{
+        left: 2.5em;
+        right: 1em;
+        margin: 0 auto;
+        max-width: 90px;
+        bottom: -1em;
+    }
+    .simplemech-built .drop-chest img{
+        left: 2em;
+        top: -1em;
+        max-width: 200px;
+        right: 2em;
+        margin: 0 auto;
+    }
+}
+
+.maximize-enter
+{
+  transform: scale(0) ;
+  opacity: 0 ;
+  
+}
+.maximize-enter-to
+{
+  transform: scale(1) ;
+  opacity: 1 ;
+}
+
+.maximize-enter-to{
+  transition: all .5s ;
+}
+
+.maximize-leave
+{
+  transform: scale(1) ;
+  opacity: 1 ;transition: all .5s ;
+}
+.maximize-leave-to
+{
+  transform: scale(0) ;
+  opacity: 0 ;
+  transition: all .5s ;
+}
